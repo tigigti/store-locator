@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+            integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+            crossorigin="anonymous"
+        />
+        <title>Store Locator</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <header class="header">
+                <div class="header__logo">
+                    <a href="#home">
+                        <img src="https://team.emma-sleep.com/wp-content/themes/bettzeit/public/img/logo_blue.svg" />
+                    </a>
+                </div>
+                <nav class="header__navigation header__navigation--stretch">
+                    <span class="header__navigation-item">Mattresses <i class="fa fa-angle-down"></i></span>
+                    <span class="header__navigation-item">Accessories <i class="fa fa-angle-down"></i></span>
+                    <span class="header__navigation-item">Bedframe</span>
+                    <span class="header__navigation-item">Bundles</span>
+                    <span class="header__navigation-item">Kids</span>
+                    <span class="header__navigation-item">Dogs</span>
+                </nav>
+
+                <nav class="header__navigation">
+                    <span class="header__navigation-item header__navigation-item--small"
+                        >English <i class="fa fa-angle-down"></i
+                    ></span>
+                    <span class="header__navigation-item header__navigation-item--small">Awards</span>
+                    <span class="header__navigation-item header__navigation-item--small">Reviews</span>
+                    <span class="header__navigation-item header__navigation-item--small">Help</span>
+                    <span class="header__navigation-item header__navigation-item--small"
+                        ><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</span
+                    >
+                </nav>
+            </header>
+
+            <div class="locator-hero">
+                <h1 class="locator-hero__headline">Find a store near you</h1>
+                <form class="search-form">
+                    <div class="form-group">
+                        <label class="form-group__label" for="location">Your Location</label>
+                        <input class="form-group__input form-group__input--left" type="text" name="location" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group__label" for="location">Your Location</label>
+                        <input class="form-group__input" type="text" name="location" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-group__label" for="location">Your Location</label>
+                        <input class="form-group__input form-group__input--right" type="text" name="location" />
+                    </div>
+
+                    <input class="submit-btn" type="submit" value="Find" />
+                </form>
+            </div>
+
+            <div class="map-container">
+                <div class="preview-box">preview box</div>
+                <div id="map" class="map" style="height: 320px; width: 640px"></div>
+            </div>
+
+            <footer class="footer">
+                <div>segmüller</div>
+                <div>matratzen concord</div>
+                <div>galeria kaufhof</div>
+            </footer>
+        </div>
+        <script src="main.js" type="text/javascript"></script>
+    </body>
+</html>
