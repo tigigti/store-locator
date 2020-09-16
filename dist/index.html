@@ -43,27 +43,50 @@
 
             <div class="locator-hero">
                 <h1 class="locator-hero__headline">Find a store near you</h1>
-                <form class="search-form">
-                    <div class="form-group">
-                        <label class="form-group__label" for="location">Your Location</label>
-                        <input class="form-group__input form-group__input--left" type="text" name="location" />
-                    </div>
-                    <div class="form-group">
-                        <label class="form-group__label" for="location">Your Location</label>
-                        <input class="form-group__input" type="text" name="location" />
-                    </div>
-                    <div class="form-group">
-                        <label class="form-group__label" for="location">Your Location</label>
-                        <input class="form-group__input form-group__input--right" type="text" name="location" />
+                <form class="search-form" id="store-finder-form">
+                    <div class="search-form__main-row">
+                        <div class="form-group">
+                            <label class="form-group__label" for="location">Your Location</label>
+                            <input class="form-group__input form-group__input--left" type="text" name="location" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__label" for="mattresses">Mattresses</label>
+                            <!-- <input class="form-group__input" type="text" name="location" /> -->
+                            <select class="form-group__input" name="mattresses">
+                                <option>1</option>
+                                <option>1</option>
+                                <option>1</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__label" for="stores">Stores</label>
+                            <!-- <input class="form-group__input form-group__input--right" type="text" name="location" /> -->
+                            <select class="form-group__input form-group__input--right" name="stores">
+                                <option>1</option>
+                                <option>1</option>
+                                <option>1</option>
+                            </select>
+                        </div>
+
+                        <input class="submit-btn" type="submit" value="Find" />
                     </div>
 
-                    <input class="submit-btn" type="submit" value="Find" />
+                    <div class="search-form__checkbox-container">
+                        <div class="checkbox-wrapper">
+                            <input class="checkbox-wrapper__checkbox" type="checkbox" name="trybuy" id="trybuy" />
+                            <label class="checkbox-wrapper__label" for="trybuy">Try & Buy</label>
+                        </div>
+                        <div class="checkbox-wrapper">
+                            <input class="checkbox-wrapper__checkbox" type="checkbox" name="buyonly" id="buyonly" />
+                            <label class="checkbox-wrapper__label" for="buyonly">Buy only</label>
+                        </div>
+                    </div>
                 </form>
             </div>
 
             <div class="map-container">
-                <div class="preview-box">preview box</div>
-                <div id="map" class="map" style="height: 320px; width: 640px"></div>
+                <div class="map-container__preview-box">preview box</div>
+                <div id="map" class="map-container__map"></div>
             </div>
 
             <footer class="footer">

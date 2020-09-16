@@ -1,13 +1,6 @@
 import "./style.scss";
 import "./hereMap";
 
-function component() {
-    const el = document.createElement("div");
+const storeFinderForm = document.querySelector("#store-finder-form");
 
-    el.innerHTML = "Hello warudoo";
-    el.classList.add("hello");
-
-    return el;
-}
-
-document.body.appendChild(component());
+storeFinderForm.addEventListener("submit", (e) => e.preventDefault());

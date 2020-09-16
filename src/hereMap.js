@@ -15,4 +15,4 @@ var map = new H.Map(document.getElementById("map"), maptypes.vector.normal.map, 
     center: { lng: 13.4, lat: 52.51 },
 });
 
-console.log(map);
+// console.log(map);
