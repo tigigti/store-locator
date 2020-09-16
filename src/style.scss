@@ -1,3 +1,60 @@
-.hello {
-    color: orange;
+@font-face {
+    font-family: "KumbhSans";
+    src: url("./KumbhSans-Regular.ttf") format("ttf");
+    font-weight: 600;
+    font-style: normal;
+}
+
+$white: #fffaf5;
+$blue: #1d2748;
+
+$spacing: 8px;
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: flex-start;
+    background-color: $white;
+    color: $blue;
+    padding: $spacing;
+    height: $spacing * 6;
+    position: relative;
+}
+
+.header__logo {
+    a,
+    img {
+        height: 100%;
+    }
+}
+
+.header__navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header__navigation--stretch {
+    flex: 1;
+}
+
+.header__navigation-item {
+    margin-right: $spacing;
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "KumbhSans", Arial, Helvetica, sans-serif;
 }
