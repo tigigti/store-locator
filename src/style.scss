@@ -7,6 +7,7 @@
 
 $white: #fffaf5;
 $blue: #1d2748;
+$orange: #ffa355;
 
 $spacing: 8px;
 
@@ -22,7 +23,7 @@ $spacing: 8px;
     justify-content: flex-start;
     background-color: $white;
     color: $blue;
-    padding: $spacing;
+    padding: $spacing $spacing * 2.5;
     height: $spacing * 6;
     position: relative;
 }
@@ -46,15 +47,78 @@ $spacing: 8px;
 }
 
 .header__navigation-item {
-    margin-right: $spacing;
+    margin-right: $spacing * 2;
 
     &:last-child {
         margin-right: 0;
     }
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.header__navigation-item--small {
+    font-size: 14px;
+}
+
+.locator-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $blue;
+    color: $white;
+    padding: $spacing * 5 0;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: row;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group__label {
+    margin-bottom: $spacing;
+}
+
+.form-group__input {
+    border: 1px solid lightgrey;
+    background-color: $white;
+    padding: $spacing;
+}
+
+.form-group__input--left {
+    border-top-left-radius: $spacing;
+    border-bottom-left-radius: $spacing;
+}
+
+.form-group__input--right {
+    border-top-right-radius: $spacing;
+    border-bottom-right-radius: $spacing;
+}
+
+.submit-btn {
+    background-color: $orange;
+    color: $blue;
+    border-radius: $spacing;
+    font-weight: bold;
 }
 
 body {
     margin: 0;
     padding: 0;
     font-family: "KumbhSans", Arial, Helvetica, sans-serif;
+}
+
+input {
+    border: none;
+    background-color: none;
+}
+
+* {
+    outline: none;
 }

@@ -1,4 +1,5 @@
 import "./style.scss";
+import "./hereMap";
 
 function component() {
     const el = document.createElement("div");

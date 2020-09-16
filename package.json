@@ -33,5 +33,8 @@
         "webpack-cli": "^3.3.12",
         "webpack-dev-server": "^3.11.0",
         "xml-loader": "^1.2.1"
+    },
+    "dependencies": {
+        "@here/maps-api-for-javascript": "^1.19.1"
     }
 }
