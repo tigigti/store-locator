@@ -1,0 +1,37 @@
+{
+    "name": "webapp",
+    "version": "1.0.0",
+    "description": "Store locator application",
+    "private": true,
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack --config webpack.prod.js",
+        "start": "webpack-dev-server --open --config webpack.dev.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tigigti/store-locator.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/tigigti/store-locator/issues"
+    },
+    "homepage": "https://github.com/tigigti/store-locator#readme",
+    "devDependencies": {
+        "@babel/core": "^7.11.6",
+        "@babel/preset-env": "^7.11.5",
+        "babel-loader": "^8.1.0",
+        "css-loader": "^4.3.0",
+        "csv-loader": "^3.0.3",
+        "file-loader": "^6.1.0",
+        "sass": "^1.26.10",
+        "sass-loader": "^10.0.2",
+        "style-loader": "^1.2.1",
+        "webpack": "^4.44.1",
+        "webpack-cli": "^3.3.12",
+        "webpack-dev-server": "^3.11.0",
+        "xml-loader": "^1.2.1"
+    }
+}
