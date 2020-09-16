@@ -74,15 +74,19 @@ $spacing: 8px;
 .search-form {
     display: flex;
     flex-direction: row;
+    padding-top: 24px;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .form-group__label {
-    margin-bottom: $spacing;
+    position: absolute;
+    top: -24px;
+    left: 0;
 }
 
 .form-group__input {
@@ -106,6 +110,8 @@ $spacing: 8px;
     color: $blue;
     border-radius: $spacing;
     font-weight: bold;
+    min-width: 100px;
+    margin-left: 2 * $spacing;
 }
 
 body {
