@@ -2,16 +2,34 @@ import H from "@here/maps-api-for-javascript/bin/mapsjs.bundle";
 import { hereMapKey } from "../keys";
 import csvData from "./Emma_Belgium_Stores.csv";
 
+const tryBuyCheckbox = document.querySelector("#trybuy");
+const buyOnlyCheckbox = document.querySelector("#buyonly");
+
+tryBuyCheckbox.addEventListener("change", (e) => {
+    tryBuy = e.target.checked ? 1 : 0;
+    clusteredDataProvider.setTheme(customTheme);
+});
+
+buyOnlyCheckbox.addEventListener("change", (e) => {
+    buyOnly = e.target.checked ? 1 : 0;
+    clusteredDataProvider.setTheme(customTheme);
+});
+
+let tryBuy = 0;
+let buyOnly = 0;
+
+let clusteredDataProvider;
+let customTheme;
+
 function startClustering(map, data) {
     // First we need to create an array of DataPoint objects,
     // for the ClusterProvider
     var dataPoints = data.map(function (item) {
-        // Check filter
         return new H.clustering.DataPoint(item.lat, item.lng, null, item);
     });
 
     // Create a clustering provider with custom options for clusterizing the input
-    var clusteredDataProvider = new H.clustering.Provider(dataPoints, {
+    clusteredDataProvider = new H.clustering.Provider(dataPoints, {
         clusteringOptions: {
             // Maximum radius of the neighbourhood
             eps: 32,
@@ -22,7 +40,7 @@ function startClustering(map, data) {
 
     const defaultTheme = clusteredDataProvider.getTheme();
 
-    const customTheme = {
+    customTheme = {
         getClusterPresentation: function (cluster) {
             //Keep the default theme for clusters
             // const data = cluster.getData();
@@ -35,8 +53,15 @@ function startClustering(map, data) {
             // Get a reference to data object our noise points
             const data = noisePoint.getData();
             // Create a marker for the noisePoint
+            let isVisible = true;
+
+            if ((tryBuy == 1 && data.trybuy == 0) || (buyOnly == 1 && data.canbuy == 0)) {
+                isVisible = false;
+            }
+
             const noiseMarker = new H.map.Marker(noisePoint.getPosition(), {
                 min: noisePoint.getMinZoom(),
+                visibility: isVisible,
             });
 
             noiseMarker.setData(data);
@@ -93,10 +118,11 @@ for (let i = 1; i < csvData.length; i++) {
         lat: csvData[i][7],
         lng: csvData[i][8],
         name: csvData[i][0],
+        canbuy: csvData[i][10],
+        trybuy: csvData[i][11],
     };
 
     stores.push(store);
-
     // const marker = new H.map.Marker(coords);
     // map.addObject(marker);
 }
