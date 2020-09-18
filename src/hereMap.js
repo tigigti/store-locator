@@ -1,9 +1,34 @@
 import H from "@here/maps-api-for-javascript/bin/mapsjs.bundle";
 import { hereMapKey } from "../keys";
 import csvData from "./Emma_Belgium_Stores.csv";
+import { displayStore, clearPreview } from "./previewBox";
 
 const tryBuyCheckbox = document.querySelector("#trybuy");
 const buyOnlyCheckbox = document.querySelector("#buyonly");
+const storeSelect = document.querySelector("#stores");
+const mattressSelect = document.querySelector("#mattresses");
+
+const stores = [];
+
+for (let i = 1; i < csvData.length; i++) {
+    const store = {
+        lat: csvData[i][7],
+        lng: csvData[i][8],
+        name: csvData[i][0],
+        canbuy: csvData[i][10],
+        trybuy: csvData[i][11],
+        matType: csvData[i][9],
+        adress: csvData[i][1],
+        postcode: csvData[i][2],
+        city: csvData[i][3],
+        phone: csvData[i][4],
+        hours: csvData[i][5],
+        hoursWeekend: csvData[i][6],
+        
+    };
+
+    stores.push(store);
+}
 
 tryBuyCheckbox.addEventListener("change", (e) => {
     tryBuy = e.target.checked ? 1 : 0;
@@ -15,11 +40,26 @@ buyOnlyCheckbox.addEventListener("change", (e) => {
     clusteredDataProvider.setTheme(customTheme);
 });
 
+storeSelect.addEventListener("change", (e) => {
+    store = e.target.value;
+    clusteredDataProvider.setTheme(customTheme);
+    // startClustering(map, stores);
+});
+mattressSelect.addEventListener("change", (e) => {
+    mattress = e.target.value;
+    // clusteredDataProvider.removeEventListener("tap", markerClick);
+    clusteredDataProvider.setTheme(customTheme);
+    // startClustering(map, stores);
+});
+
 let tryBuy = 0;
 let buyOnly = 0;
+let store = "all";
+let mattress = "all";
 
 let clusteredDataProvider;
 let customTheme;
+let clusteringLayer;
 
 function startClustering(map, data) {
     // First we need to create an array of DataPoint objects,
@@ -28,8 +68,19 @@ function startClustering(map, data) {
         return new H.clustering.DataPoint(item.lat, item.lng, null, item);
     });
 
+    var filteredPoints = dataPoints.filter((data) => {
+        if ((tryBuy == 1 && data.trybuy == 0) || (buyOnly == 1 && data.canbuy == 0)) {
+            return false;
+        }
+
+        if ((store !== "all" && store !== data.name) || (mattress !== "all" && mattress !== data.matType)) {
+            return false;
+        }
+        return true;
+    });
+
     // Create a clustering provider with custom options for clusterizing the input
-    clusteredDataProvider = new H.clustering.Provider(dataPoints, {
+    clusteredDataProvider = new H.clustering.Provider(filteredPoints, {
         clusteringOptions: {
             // Maximum radius of the neighbourhood
             eps: 32,
@@ -47,6 +98,7 @@ function startClustering(map, data) {
             const clusterMarker = defaultTheme.getClusterPresentation.call(defaultTheme, cluster);
 
             // clusterMarker.setData(data);
+            // console.log(data);
             return clusterMarker;
         },
         getNoisePresentation: function (noisePoint) {
@@ -56,6 +108,10 @@ function startClustering(map, data) {
             let isVisible = true;
 
             if ((tryBuy == 1 && data.trybuy == 0) || (buyOnly == 1 && data.canbuy == 0)) {
+                isVisible = false;
+            }
+
+            if ((store !== "all" && store !== data.name) || (mattress !== "all" && mattress !== data.matType)) {
                 isVisible = false;
             }
 
@@ -72,17 +128,19 @@ function startClustering(map, data) {
     clusteredDataProvider.setTheme(customTheme);
 
     // Create a layer tha will consume objects from our clustering provider
-    var clusteringLayer = new H.map.layer.ObjectLayer(clusteredDataProvider);
+    clusteringLayer = new H.map.layer.ObjectLayer(clusteredDataProvider);
 
     // To make objects from clustering provder visible,
     // we need to add our layer to the map
     map.addLayer(clusteringLayer);
 
-    clusteredDataProvider.addEventListener("tap", (e) => {
-        console.log(e.target.getData());
-        map.setCenter(e.target.getGeometry());
-    });
+    clusteredDataProvider.addEventListener("tap", markerClick);
 }
+
+const markerClick = (e) => {
+    console.log(e.target.getData());
+    map.setCenter(e.target.getGeometry());
+};
 
 // Initialize the platform object:
 export const platform = new H.service.Platform({
@@ -102,44 +160,14 @@ const mapEvents = new H.mapevents.MapEvents(map);
 const behavior = new H.mapevents.Behavior(mapEvents);
 
 map.addEventListener("mapviewchangeend", (e) => {
-    // const bounds = map.getViewModel().getLookAtData().bounds;
+    clearPreview();
     const { aa, la, da, ia } = map.getViewModel().getLookAtData().bounds.getBoundingBox();
-    console.log(aa, la);
     for (let i = 0; i < stores.length; i++) {
         const { lat, lng } = stores[i];
         if (la <= lat && lat <= ia && aa <= lng && lng <= da) {
-            console.log(lat, lng, "is in bounds");
-            // Display in Preview Box
-        } else {
-            console.log(lat, lng, "is outside bounds");
+            displayStore(stores[i]);
         }
     }
 });
-
-// for (let store in csvData) {
-//     const coords = {
-//         lat: csvData[store][7],
-//         lng: csvData[store][8],
-//     };
-
-//     const marker = new H.map.Marker(coords);
-//     map.addObject(marker);
-// }
-
-const stores = [];
-
-for (let i = 1; i < csvData.length; i++) {
-    const store = {
-        lat: csvData[i][7],
-        lng: csvData[i][8],
-        name: csvData[i][0],
-        canbuy: csvData[i][10],
-        trybuy: csvData[i][11],
-    };
-
-    stores.push(store);
-    // const marker = new H.map.Marker(coords);
-    // map.addObject(marker);
-}
 
 startClustering(map, stores);
