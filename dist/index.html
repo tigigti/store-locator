@@ -14,12 +14,13 @@
     <body>
         <div class="wrapper">
             <header class="header">
+                <span class="menu-toggle show-tablet"><i class="fa fa-bars" aria-hidden="true"></i></span>
                 <div class="header__logo">
                     <a href="#home">
                         <img src="https://team.emma-sleep.com/wp-content/themes/bettzeit/public/img/logo_blue.svg" />
                     </a>
                 </div>
-                <nav class="header__navigation header__navigation--stretch">
+                <nav class="header__navigation header__navigation--stretch hide-mobile">
                     <span class="header__navigation-item">Mattresses <i class="fa fa-angle-down"></i></span>
                     <span class="header__navigation-item">Accessories <i class="fa fa-angle-down"></i></span>
                     <span class="header__navigation-item">Bedframe</span>
@@ -28,7 +29,7 @@
                     <span class="header__navigation-item">Dogs</span>
                 </nav>
 
-                <nav class="header__navigation">
+                <nav class="header__navigation hide-tablet">
                     <span class="header__navigation-item header__navigation-item--small"
                         >English <i class="fa fa-angle-down"></i
                     ></span>
@@ -39,6 +40,9 @@
                         ><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart</span
                     >
                 </nav>
+                <span style="font-size: 20px" class="show-tablet"
+                    ><i class="fa fa-shopping-cart" aria-hidden="true"></i
+                ></span>
             </header>
 
             <div class="locator-hero">

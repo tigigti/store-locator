@@ -10,7 +10,34 @@ $blue: #1d2748;
 $orange: #ffa355;
 
 $spacing: 8px;
-$breakpoint: 768px;
+$breakpoint: 1010px;
+$mobile: 768px;
+
+.hide-tablet {
+    @media screen and(max-width: $breakpoint) {
+        display: none !important;
+    }
+}
+
+.show-tablet {
+    display: none;
+    @media screen and(max-width: $breakpoint) {
+        display: block;
+    }
+}
+
+.hide-mobile {
+    @media screen and(max-width: $mobile) {
+        display: none !important;
+    }
+}
+
+.show-mobile {
+    display: none;
+    @media screen and(max-width: $mobile) {
+        display: block;
+    }
+}
 
 .wrapper {
     display: flex;
@@ -30,10 +57,19 @@ $breakpoint: 768px;
     position: relative;
 }
 
+.menu-toggle {
+    font-size: 20px;
+    margin-right: $spacing * 2;
+}
+
 .header__logo {
     a,
     img {
         height: 100%;
+    }
+    @media screen and(max-width:$mobile) {
+        flex: 1;
+        text-align: center;
     }
 }
 
@@ -72,11 +108,14 @@ $breakpoint: 768px;
     align-items: center;
     background-color: $blue;
     color: $white;
-    padding: $spacing * 5 0;
+    padding: $spacing * 5 $spacing * 2;
 }
 
 .locator-hero__headline {
     margin-bottom: 8 * $spacing;
+    @media screen and(max-width: $mobile) {
+        font-size: 25px;
+    }
 }
 
 .search-form {
@@ -84,6 +123,9 @@ $breakpoint: 768px;
     display: flex;
     flex-direction: column;
     max-width: 750px;
+    @media screen and(max-width: $mobile) {
+        max-width: 450px;
+    }
 }
 
 .search-form__main-row {
@@ -91,6 +133,10 @@ $breakpoint: 768px;
     flex-direction: row;
     padding-top: 24px;
     width: 100%;
+    @media screen and(max-width: $mobile) {
+        flex-direction: column;
+        padding-top: 0;
+    }
 }
 
 .search-form__checkbox-container {
@@ -137,6 +183,9 @@ $breakpoint: 768px;
     flex-direction: column;
     position: relative;
     flex: 1;
+    @media screen and(max-width: $mobile) {
+        margin-bottom: $spacing;
+    }
 }
 
 .form-group__label {
@@ -145,6 +194,11 @@ $breakpoint: 768px;
     left: 0;
     font-weight: bold;
     font-size: 14px;
+    @media screen and(max-width: $mobile) {
+        position: relative;
+        top: 0;
+        margin-bottom: $spacing;
+    }
 }
 
 .form-group__input {
@@ -161,13 +215,17 @@ select.form-group__input {
 }
 
 .form-group__input--left {
-    border-top-left-radius: $spacing;
-    border-bottom-left-radius: $spacing;
+    @media screen and(min-width: $mobile) {
+        border-top-left-radius: $spacing;
+        border-bottom-left-radius: $spacing;
+    }
 }
 
 .form-group__input--right {
-    border-top-right-radius: $spacing;
-    border-bottom-right-radius: $spacing;
+    @media screen and(min-width: $mobile) {
+        border-top-right-radius: $spacing;
+        border-bottom-right-radius: $spacing;
+    }
 }
 
 .submit-btn {
@@ -183,6 +241,11 @@ select.form-group__input {
     &:hover {
         color: $orange;
         background-color: $white;
+    }
+    @media screen and(max-width: $mobile) {
+        margin-left: 0;
+        height: 33px;
+        margin-top: $spacing;
     }
 }
 
