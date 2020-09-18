@@ -101,6 +101,20 @@ export const map = new H.Map(document.getElementById("map"), maptypes.vector.nor
 const mapEvents = new H.mapevents.MapEvents(map);
 const behavior = new H.mapevents.Behavior(mapEvents);
 
+map.addEventListener("mapviewchangeend", (e) => {
+    // const bounds = map.getViewModel().getLookAtData().bounds;
+    const { aa, la, da, ia } = map.getViewModel().getLookAtData().bounds.getBoundingBox();
+    console.log(aa, la);
+    for (let i = 0; i < stores.length; i++) {
+        const { lat, lng } = stores[i];
+        if (la <= lat && lat <= ia && aa <= lng && lng <= da) {
+            console.log(lat, lng, "is in bounds");
+        } else {
+            console.log(lat, lng, "is outside bounds");
+        }
+    }
+});
+
 // for (let store in csvData) {
 //     const coords = {
 //         lat: csvData[store][7],
