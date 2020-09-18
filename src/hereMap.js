@@ -1,7 +1,7 @@
 import H from "@here/maps-api-for-javascript/bin/mapsjs.bundle";
 import { hereMapKey } from "../keys";
 import csvData from "./Emma_Belgium_Stores.csv";
-import { displayStore, clearPreview } from "./previewBox";
+import { displayStore, clearPreview, hidePreview } from "./previewBox";
 
 const tryBuyCheckbox = document.querySelector("#trybuy");
 const buyOnlyCheckbox = document.querySelector("#buyonly");
@@ -118,6 +118,10 @@ function startClustering(map, data) {
                 isVisible = false;
             }
 
+            if (tryBuy == buyOnly) {
+                isVisible = true;
+            }
+
             const noiseMarker = new H.map.Marker(noisePoint.getPosition(), {
                 min: noisePoint.getMinZoom(),
                 visibility: isVisible,
@@ -181,6 +185,10 @@ const renderPreviewBox = () => {
                 isVisible = false;
             }
 
+            if (tryBuy == buyOnly) {
+                isVisible = true;
+            }
+
             if (isVisible) displayStore(stores[i], lat, lng);
         }
     }
@@ -190,6 +198,7 @@ startClustering(map, stores);
 
 window.centerMap = (lat, lng) => {
     map.setCenter({ lat, lng });
+    hidePreview();
 };
 
 window.addEventListener("resize", () => {

@@ -109,12 +109,16 @@ $mobile: 768px;
     background-color: $blue;
     color: $white;
     padding: $spacing * 5 $spacing * 2;
+    @media screen and(max-width: $mobile) {
+        padding: $spacing * 2;
+    }
 }
 
 .locator-hero__headline {
     margin-bottom: 8 * $spacing;
     @media screen and(max-width: $mobile) {
         font-size: 25px;
+        margin: 0 0 $spacing 0;
     }
 }
 
@@ -125,6 +129,17 @@ $mobile: 768px;
     max-width: 750px;
     @media screen and(max-width: $mobile) {
         max-width: 450px;
+    }
+}
+
+#responsiveToggle {
+    width: 100%;
+    span {
+        width: 100%;
+        display: block;
+        text-align: center;
+        font-size: 30px;
+        color: $orange;
     }
 }
 
@@ -266,9 +281,30 @@ select.form-group__input {
     color: $blue;
     overflow-y: auto;
     width: 250px;
+
+    @media screen and(max-width: $mobile) {
+        width: 100%;
+        bottom: 24px;
+    }
 }
 
 .map-container__preview-box--hidden {
+    @media screen and(max-width: $mobile) {
+        display: none;
+    }
+}
+
+.bottom-app-bar {
+    position: fixed;
+    background-color: $white;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
+    padding: $spacing;
+    box-shadow: 0px -2px 2px 0px rgba(204, 204, 204, 1);
+    color: $blue;
+    font-weight: bold;
 }
 
 .store-item {
@@ -307,6 +343,10 @@ select.form-group__input {
     height: 100%;
     width: calc(100% - 250px);
     margin-left: 250px;
+    @media screen and(max-width: $mobile) {
+        width: 100%;
+        margin-left: 0;
+    }
 }
 
 .pop-up {
@@ -350,6 +390,7 @@ select.form-group__input {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 $spacing;
 }
 
 body {

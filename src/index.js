@@ -1,6 +1,7 @@
 import "./style.scss";
 import { platform, map } from "./hereMap";
 import csvData from "./Emma_Belgium_Stores.csv";
+import { hidePreview, showPreview } from "./previewBox";
 
 const storeFinderForm = document.querySelector("#store-finder-form");
 const storeSelect = document.querySelector("#stores");
@@ -8,6 +9,10 @@ const mattressSelect = document.querySelector("#mattresses");
 const previewBox = document.querySelector("#previewBox");
 const closePopUp = document.querySelector(".pop-up__close-btn");
 const popUp = document.querySelector(".pop-up");
+const responsiveToggle = document.querySelector("#responsiveToggle");
+const toggleIcon = responsiveToggle.querySelector("span i");
+
+let formCollapsed = false;
 
 const service = platform.getSearchService();
 
@@ -64,4 +69,20 @@ closePopUp.addEventListener("click", (e) => {
     console.log("clicked");
     popUp.classList.remove("pop-up--visible");
     console.log(popUp.classList);
+});
+
+responsiveToggle.addEventListener("click", (e) => {
+    formCollapsed = !formCollapsed;
+    if (formCollapsed) {
+        storeSelect.parentElement.classList.add("hide-mobile");
+        mattressSelect.parentElement.classList.add("hide-mobile");
+        toggleIcon.classList.remove("fa-angle-up");
+        toggleIcon.classList.add("fa-angle-down");
+    } else {
+        storeSelect.parentElement.classList.remove("hide-mobile");
+        mattressSelect.parentElement.classList.remove("hide-mobile");
+        toggleIcon.classList.remove("fa-angle-down");
+        toggleIcon.classList.add("fa-angle-up");
+    }
+    map.getViewPort().resize();
 });

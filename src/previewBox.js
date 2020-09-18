@@ -1,11 +1,10 @@
 const previewBox = document.querySelector("#previewBox");
 const storeContainer = previewBox.querySelector(".store-container");
+const bottomAppBar = document.querySelector(".bottom-app-bar");
+
+let mapVisible = false;
 
 export const displayStore = (store, lat, lng) => {
-    function fuckyou() {
-        console.log("fuck you");
-    }
-
     storeContainer.innerHTML += `
     <div class="store-item">
         <div><span class="store-item__name">${store.name}</span><span class="breadcrumb trybuy ${
@@ -25,3 +24,24 @@ export const displayStore = (store, lat, lng) => {
 export const clearPreview = () => {
     storeContainer.innerHTML = "";
 };
+
+export const hidePreview = () => {
+    previewBox.classList.add("map-container__preview-box--hidden");
+    bottomAppBar.innerHTML = `<i class="fa fa-list" aria-hidden="true"></i> Show List`;
+    mapVisible = true;
+};
+
+export const showPreview = () => {
+    previewBox.classList.remove("map-container__preview-box--hidden");
+    bottomAppBar.innerHTML = `<i class="fa fa-map-marker" aria-hidden="true"></i> Show Map`;
+    mapVisible = false;
+};
+
+bottomAppBar.addEventListener("click", (e) => {
+    mapVisible = !mapVisible;
+    if (mapVisible) {
+        hidePreview();
+    } else {
+        showPreview();
+    }
+});
