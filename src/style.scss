@@ -10,11 +10,13 @@ $blue: #1d2748;
 $orange: #ffa355;
 
 $spacing: 8px;
+$breakpoint: 768px;
 
 .wrapper {
     display: flex;
     flex-direction: column;
     height: 100vh;
+    position: relative;
 }
 
 .header {
@@ -200,7 +202,7 @@ select.form-group__input {
     padding: $spacing * 2;
     color: $blue;
     overflow-y: auto;
-    max-width: 250px;
+    width: 250px;
 }
 
 .map-container__preview-box--hidden {
@@ -212,14 +214,26 @@ select.form-group__input {
     padding: $spacing * 2 0;
 }
 
+.store-item__name {
+    font-size: 16px;
+}
+
+.store-item__adress {
+    font-size: 14px;
+}
+
 .breadcrumb {
-    font-size: 12px;
+    font-size: 10px;
     color: $blue;
     background-color: $orange;
     border-radius: $spacing;
     padding: $spacing/4 $spacing/2;
     font-weight: bold;
     margin-left: $spacing;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .breadcrumb--hidden {
@@ -228,7 +242,51 @@ select.form-group__input {
 
 .map-container__map {
     height: 100%;
+    width: calc(100% - 250px);
+    margin-left: 250px;
+}
+
+.pop-up {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+}
+
+.pop-up--visible {
+    display: block;
+}
+
+.pop-up__box {
     width: 100%;
+    max-width: 500px;
+    background-color: white;
+    border-radius: $spacing;
+    padding: 2 * $spacing;
+    color: $blue;
+    position: relative;
+}
+
+.pop-up__close-btn {
+    position: absolute;
+    top: $spacing;
+    right: $spacing;
+    font-size: 20px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.pop-up__veil {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 body {

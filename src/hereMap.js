@@ -24,7 +24,6 @@ for (let i = 1; i < csvData.length; i++) {
         phone: csvData[i][4],
         hours: csvData[i][5],
         hoursWeekend: csvData[i][6],
-        
     };
 
     stores.push(store);
@@ -33,22 +32,26 @@ for (let i = 1; i < csvData.length; i++) {
 tryBuyCheckbox.addEventListener("change", (e) => {
     tryBuy = e.target.checked ? 1 : 0;
     clusteredDataProvider.setTheme(customTheme);
+    renderPreviewBox();
 });
 
 buyOnlyCheckbox.addEventListener("change", (e) => {
     buyOnly = e.target.checked ? 1 : 0;
     clusteredDataProvider.setTheme(customTheme);
+    renderPreviewBox();
 });
 
 storeSelect.addEventListener("change", (e) => {
     store = e.target.value;
     clusteredDataProvider.setTheme(customTheme);
+    renderPreviewBox();
     // startClustering(map, stores);
 });
 mattressSelect.addEventListener("change", (e) => {
     mattress = e.target.value;
     // clusteredDataProvider.removeEventListener("tap", markerClick);
     clusteredDataProvider.setTheme(customTheme);
+    renderPreviewBox();
     // startClustering(map, stores);
 });
 
@@ -160,14 +163,35 @@ const mapEvents = new H.mapevents.MapEvents(map);
 const behavior = new H.mapevents.Behavior(mapEvents);
 
 map.addEventListener("mapviewchangeend", (e) => {
+    renderPreviewBox();
+});
+
+const renderPreviewBox = () => {
     clearPreview();
     const { aa, la, da, ia } = map.getViewModel().getLookAtData().bounds.getBoundingBox();
     for (let i = 0; i < stores.length; i++) {
-        const { lat, lng } = stores[i];
+        const { lat, lng, trybuy, canbuy, name, matType } = stores[i];
         if (la <= lat && lat <= ia && aa <= lng && lng <= da) {
-            displayStore(stores[i]);
+            let isVisible = true;
+            if ((tryBuy == 1 && trybuy == 0) || (buyOnly == 1 && canbuy == 0)) {
+                isVisible = false;
+            }
+
+            if ((store !== "all" && store !== name) || (mattress !== "all" && mattress !== matType)) {
+                isVisible = false;
+            }
+
+            if (isVisible) displayStore(stores[i], lat, lng);
         }
     }
-});
+};
 
 startClustering(map, stores);
+
+window.centerMap = (lat, lng) => {
+    map.setCenter({ lat, lng });
+};
+
+window.addEventListener("resize", () => {
+    map.getViewPort().resize();
+});

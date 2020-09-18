@@ -5,6 +5,9 @@ import csvData from "./Emma_Belgium_Stores.csv";
 const storeFinderForm = document.querySelector("#store-finder-form");
 const storeSelect = document.querySelector("#stores");
 const mattressSelect = document.querySelector("#mattresses");
+const previewBox = document.querySelector("#previewBox");
+const closePopUp = document.querySelector(".pop-up__close-btn");
+const popUp = document.querySelector(".pop-up");
 
 const service = platform.getSearchService();
 
@@ -50,3 +53,15 @@ const createOptions = (select, data) => {
 
 createOptions(storeSelect, storeNames);
 createOptions(mattressSelect, typeNames);
+
+previewBox.addEventListener("click", (e) => {
+    if (e.target.classList.contains("trybuy")) {
+        popUp.classList.add("pop-up--visible");
+    }
+});
+
+closePopUp.addEventListener("click", (e) => {
+    console.log("clicked");
+    popUp.classList.remove("pop-up--visible");
+    console.log(popUp.classList);
+});

@@ -1,18 +1,18 @@
 Name,Address,Postcode,City,Telephone,Office Hours,Office Hours Weekend,Latitude,Longitude,Type,Can Buy,Try and Buy
-Beter Bed,Maalse Steenweg 324 a,8310,Brugge,,Maandag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: gesloten,51.209045,3.259293,Emma One,1,1
-Galery,Bergensesteenweg 61,1600,Sint Pieters Leeuw,1111,Maandag - Zaterdag: 10.00 - 18.00,Zondag: gesloten,50.7798,4.24368000000004,Emma One,1,1
+Beter Bed,Maalse Steenweg 324 a,8310,Brugge,,Maandag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: gesloten,51.209045,3.259293,Emma One,0,1
+Galery,Bergensesteenweg 61,1600,Sint Pieters Leeuw,1111,Maandag - Zaterdag: 10.00 - 18.00,Zondag: gesloten,50.7798,4.24368000000004,Emma One,1,0
 Best Bed,Kortrijkstraat 333,8560,Wevelgem,2187321,Maandag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: gesloten,50.816182,3.206461,Emma Two,1,0
-Beter Bed,Tiensesteenweg 376 c,3360,Korbeek-Lo,8793218,Dinsdag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: 13.00 - 18.00,50.867662,4.740862,Emma One,1,1
-Super Mattress,Buitensingel 20,3920,Lommel,98939874,Dinsdag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/Zondag: 13.00 - 18.00,51.2220026,5.30606469999998,Emma One,1,1
-Galery,Gentseweg 494 bus 6,8793,Waregem,897923,Maandag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: gesloten,50.896338,3.39616,Emma Two,0,0
+Beter Bed,Tiensesteenweg 376 c,3360,Korbeek-Lo,8793218,Dinsdag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: 13.00 - 18.00,50.867662,4.740862,Emma One,0,1
+Super Mattress,Buitensingel 20,3920,Lommel,98939874,Dinsdag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/Zondag: 13.00 - 18.00,51.2220026,5.30606469999998,Emma One,0,1
+Galery,Gentseweg 494 bus 6,8793,Waregem,897923,Maandag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: gesloten,50.896338,3.39616,Emma Two,0,1
 Beter Bed,Leuvense Steenweg 10,1932,Sint-Stevens-Woluwe,876438724,Maandag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: gesloten,50.863306,4.43145,Emma Two,1,0
-Super Mattress,Heidebaan 58,9100,Sint Niklaas,8731297,Dinsdag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: 13.00 - 18.00,51.17022,4.179918,Emma One,1,1
-Beter Bed,Brugsesteenweg 449,8800,Roeselare,8732198,Maandag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: gesloten,50.970135,3.11976,Emma Air,1,1
-Idea,Torhoutsesteenweg 653,8400,Oostende,8732187,Maandag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: 13.00 - 18.00,51.19852,2.901821,Emma One,0,0
-Beter Bed,Lammerdries-Winkelstraat 4C5B,2250,Olen,98743298,Dinsdag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: 13.00 - 18.00,51.150824,4.90233,Emma Original,0,0
+Super Mattress,Heidebaan 58,9100,Sint Niklaas,8731297,Dinsdag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: 13.00 - 18.00,51.17022,4.179918,Emma One,1,0
+Beter Bed,Brugsesteenweg 449,8800,Roeselare,8732198,Maandag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: gesloten,50.970135,3.11976,Emma Air,1,0
+Idea,Torhoutsesteenweg 653,8400,Oostende,8732187,Maandag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: 13.00 - 18.00,51.19852,2.901821,Emma One,1,0
+Beter Bed,Lammerdries-Winkelstraat 4C5B,2250,Olen,98743298,Dinsdag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: 13.00 - 18.00,51.150824,4.90233,Emma Original,0,1
 Galery,Bredabaan 891-893,2170,Merksem,7782910,Maandag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: gesloten,51.255554,4.460807,Emma Two,1,0
 Beter Bed,Antwerpse Steenweg 69 bus 0109,9080,Lochristi,87498323,Dinsdag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: 13.00 - 18.00,51.089536,3.811974,Emma One,1,0
-Beter Bed,Mechelsesteenweg 99,1910,Kampenhout,89743298,Dinsdag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: 13.00 - 18.00,50.959787,4.586158,Emma Hybrid,1,1
-Idea,Hasseltweg 178,3600,Genk,872983423,Dinsdag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/Zondag: 13.00 - 18.00,50.960876,5.456262,Emma Air,1,1
-Beter Bed,Mechelsesteenweg 85,9200,Dendermonde,98723984,Dinsdag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: 13.00 - 18.00,51.035948,4.116166,Emma Hybrid,1,1
-Idea,Antwerpsesteenweg 651,2630,Aarstelaar,98798432,Dinsdag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: 13.00 - 18.00,51.146146,4.379953,Emma Air,1,1
+Beter Bed,Mechelsesteenweg 99,1910,Kampenhout,89743298,Dinsdag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: 13.00 - 18.00,50.959787,4.586158,Emma Hybrid,0,1
+Idea,Hasseltweg 178,3600,Genk,872983423,Dinsdag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/Zondag: 13.00 - 18.00,50.960876,5.456262,Emma Air,1,0
+Beter Bed,Mechelsesteenweg 85,9200,Dendermonde,98723984,Dinsdag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: 13.00 - 18.00,51.035948,4.116166,Emma Hybrid,0,1
+Idea,Antwerpsesteenweg 651,2630,Aarstelaar,98798432,Dinsdag - Vrijdag: 10.00 - 18.00,Zaterdag: 10.00 - 18.00/ Zondag: 13.00 - 18.00,51.146146,4.379953,Emma Air,0,1
