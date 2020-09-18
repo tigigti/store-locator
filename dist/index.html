@@ -52,24 +52,21 @@
                                 type="text"
                                 name="location"
                                 id="location"
+                                placeholder="City or ZIP Code"
                             />
                         </div>
                         <div class="form-group">
                             <label class="form-group__label" for="mattresses">Mattresses</label>
                             <!-- <input class="form-group__input" type="text" name="location" /> -->
-                            <select class="form-group__input" name="mattresses">
-                                <option>1</option>
-                                <option>1</option>
-                                <option>1</option>
+                            <select id="mattresses" class="form-group__input" name="mattresses">
+                                <option value="all">All</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label class="form-group__label" for="stores">Stores</label>
                             <!-- <input class="form-group__input form-group__input--right" type="text" name="location" /> -->
-                            <select class="form-group__input form-group__input--right" name="stores">
-                                <option>1</option>
-                                <option>1</option>
-                                <option>1</option>
+                            <select id="stores" class="form-group__input form-group__input--right" name="stores">
+                                <option value="all">All</option>
                             </select>
                         </div>
 
@@ -90,15 +87,12 @@
             </div>
 
             <div class="map-container">
-                <div class="map-container__preview-box">preview box</div>
+                <div id="previewBox" class="map-container__preview-box">
+                    <h2>Stores near you</h2>
+                    <div class="store-container"></div>
+                </div>
                 <div id="map" class="map-container__map"></div>
             </div>
-
-            <footer class="footer">
-                <div>segmüller</div>
-                <div>matratzen concord</div>
-                <div>galeria kaufhof</div>
-            </footer>
         </div>
         <script src="main.js" type="text/javascript"></script>
     </body>

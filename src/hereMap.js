@@ -109,6 +109,7 @@ map.addEventListener("mapviewchangeend", (e) => {
         const { lat, lng } = stores[i];
         if (la <= lat && lat <= ia && aa <= lng && lng <= da) {
             console.log(lat, lng, "is in bounds");
+            // Display in Preview Box
         } else {
             console.log(lat, lng, "is outside bounds");
         }
